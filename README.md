@@ -10,9 +10,8 @@ je vous ai fournis:
 le docker lance ensuite le fichier server.py
 
 ## scripts pour tester
-- client.py passe par sur le site *formidrive.cadot.info* pour envoyer la première photo (appelée face.jpg dans le répertoire courant)
-- client2.py passe par le site *formidrive.cadot.info* pour envoyer la deuxième photo (appelée cote.jpg)
-- clientcomplet.py passe par le site *formidrive.cadot.info* pour l'envoie des 2 photos avec numéro aléatoire
+- client.py passe par sur le site *api.govolum.com* pour envoyer la première photo (appelée face.jpg dans le répertoire courant)
+- client2.py passe par le site *api.govolum.com* pour l'envoie des 2 photos avec numéro aléatoire
 - localcomplet.py passe par le docker *cadotinfo/opencv* et envoie 2 photos avec numéro aléatoire
 
 ## Erreurs
@@ -37,3 +36,10 @@ Les photos envoyées seront convertis en noir et blanc  avec une taille de 1000 
 
 ## retour json
 il y a 2 partie, le debug qui donne les temps de chaque partie et les aires trouvées.
+
+## exemple en Curl
+pour local
+` curl -X POST -F 'id=1234' -F 'photo=@/home/michael/sites/formidrive_python/face.jpg' http://localhost:8080/predict `
+pour  l'api
+` curl -X POST -F 'id=1234' -F 'photo=@/home/michael/sites/formidrive_python/face.jpg' https://api.govolum.com/predict `
+
